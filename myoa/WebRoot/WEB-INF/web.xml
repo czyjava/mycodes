@@ -5,15 +5,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   
-		<filter>
-			<filter-name>OpenSessionInView</filter-name>
-			<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
-		</filter>
-		<filter-mapping>
-			<filter-name>OpenSessionInView</filter-name>
-			<url-pattern>*.action</url-pattern>
-		</filter-mapping>
+  <!-- open session in view -->
+	<filter>
+		<filter-name>OpenSessionInView</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OpenSessionInView</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
   
+  <!-- spring监听器 -->
  	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -22,6 +24,7 @@
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
   
+  <!-- struts2 核心拦截器 -->
   <filter>
   	<filter-name>struts2</filter-name>
   	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>

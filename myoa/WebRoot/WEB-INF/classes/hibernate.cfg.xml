@@ -19,7 +19,7 @@
 	<property name="hbm2ddl.auto">update</property>
 
 	<!-- 导入映射配置 -->
-	
+	<mapping resource="com/czy/oa/entity/User.hbm.xml"/>
 
 </session-factory>
 </hibernate-configuration>

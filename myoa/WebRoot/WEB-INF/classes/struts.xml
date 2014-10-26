@@ -7,7 +7,14 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.action.extension" value="action"></constant>
 	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
 	
-	
+	 <package name="mypackage" namespace="/" extends="struts-default">
+	 
+	 	<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+		</action>
+		
+	 </package>
 
 </struts>
