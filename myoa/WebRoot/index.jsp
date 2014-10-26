@@ -34,7 +34,7 @@
   				}else{
   					$(tabs).tabs('add',{ 
   	  				    title:title,    
-  	  				    content:"<iframe src='" + url + " ' style='width:98%;height:98%;border:false'></iframe>",    
+  	  				    href:url, 
   	  				    closable:true   
   	  				});  
   				}
@@ -46,7 +46,7 @@
   <body class="easyui-layout">   
     <div data-options="region:'north',title:'North Title',split:true" style="height:100px;"> MyOA </div>   
     <div data-options="region:'west',title:'菜单',split:true" style="width:200px;">
-    	<div id="menu_accrod" class="easyui-accordion" fit=true>  
+    	<div id="menu_accrod" data-options="fit:true" class="easyui-accordion">  
     		<div title="审批流转" data-options="iconCls:'icon-edit'" style="overflow:auto;padding:10px;">   
 		        <p>审批流程管理</p>
 		        <p>表单模板管理</p>  
@@ -65,8 +65,8 @@
 		    </div>   
 		</div>  
     </div>   
-    <div id="content" data-options="region:'center'" style="padding:5px;background:#eee;">
-    	<div id="tt" class="easyui-tabs" fit=true>  
+    <div id="content" data-options="region:'center',title:'主面板'">
+    	<div id="tt" class="easyui-tabs" data-options="fit:true">  
     	 
 		</div>
     </div>   
