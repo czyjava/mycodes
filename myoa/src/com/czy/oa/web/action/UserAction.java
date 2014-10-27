@@ -44,11 +44,9 @@ public class UserAction extends BaseAction<User>
 		return "saveUI";
 	}
 	
-	public String add()
+	public void add()
 	{
 		userService.add(model);
-		
-		return "toList";
 	}
 	
 	public String updateUI()

@@ -35,16 +35,61 @@
 				    fitColumns:true
 				}); 
 				
+				$("#btn1").click(function(){
+					$('#myform').form('submit', {    
+					    url:"userAction_add.action",    
+					    onSubmit: function(){    
+					        if(!$("#myform").form("validate")){
+					        	$.messager.show("提示信息","输入有误，请重新输入...");
+					        	return false;
+					        } 
+					    },    
+					    success:function(data){    
+					          $("#mydialog").dialog("close");
+					    	  $('#dg').datagrid("reload");
+					          $.messager.show("提示信息","更新完毕...");
+					    }    
+					});  
+					
+				});
   			}); 
   		</script>
   		
     	<table id="dg" data-options="fit:true"></table>
     	 
-    	<div id="mydialog" class="easyui-dialog" data-options="closed:true" style="width:260px;">
-    		 <div>   
-		        <input class="easyui-validatebox" type="text" name="name" data-options="required:true" />   
-		    </div>   
-		    <div>   
-		        <input class="easyui-validatebox" type="text" name="loginName" />   
-		    </div>  
+    	<div id="mydialog" class="easyui-dialog" data-options="closed:true,title:'新增用户'" style="width:360px;">
+    		<form id="myform" method="post">
+		    	<table style="border:1px solid; width: 100%;height: 98%; border-collapse: 0">
+		    			<tr>
+		    				<td>用户名</td>
+		    				<td><input class="easyui-validatebox" type="text" name="name" data-options="required:true" /></td>
+		    			</tr>
+		    			<tr>
+		    				<td>登录名</td>
+		    				<td><input class="easyui-validatebox" type="text" name="loginName" />   </td>
+		    			</tr>
+		    			<tr>
+		    				<td>地址</td>
+		    				<td><input class="easyui-validatebox" type="text" name="address" data-options="required:true" /></td>
+		    			</tr>
+		    			<tr>
+		    				<td>电话号码</td>
+		    				<td><input class="easyui-validatebox" type="text" name="phone" />   </td>
+		    			</tr>
+		    			<tr>
+		    				<td>性别</td>
+		    				<td><input class="easyui-validatebox" type="text" name="gender" data-options="required:true" /></td>
+		    			</tr>
+		    			<tr>
+		    				<td>说明</td>
+		    				<td><input class="easyui-validatebox" type="text" name="description" />   </td>
+		    			</tr>
+	    			<tr align="right">
+	    				<td colspan="2">
+	    					<a id="btn1" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">确定</a>
+	    					<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">取消</a>  
+	    				</td>
+	    			</tr>
+	    		</table>
+    		</form>
     	</div>

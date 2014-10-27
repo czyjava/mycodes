@@ -1,6 +1,7 @@
 package com.czy.oa.entity;
 
 
+
 public class User
 {
 	private Long id;
